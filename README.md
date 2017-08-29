@@ -2,7 +2,7 @@
 
 ### install dependencie
 
-* ##### you should have already installed node, elasticsearch,
+* ##### you should have already installed node, elasticsearch and MongoDB
 
 * ##### after that clone the project
 
