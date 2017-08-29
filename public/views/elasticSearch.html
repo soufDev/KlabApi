@@ -1,0 +1,30 @@
+<div class="container">
+    <h1>Search</h1>
+
+    <div class="form">
+            <div class="input-group">
+                    <input type="text" class="form-control" ng-model="terms">
+                    <span class="input-group-btn">
+                         <button class="btn btn-primary" type="button" ng-click="search(terms)">Search</button>
+                    </span>
+                 </div>
+
+        <div class="w3-container">
+            <hr>
+            <div>
+                <div class="w3-card-4" ng-repeat="tweet in tweets" id="card">
+                    <header class="w3-container w3-light-grey">
+                        <h3>{{tweet._source.author}}</h3>
+                    </header>
+                    <div class="w3-container">
+                        <p>{{tweet._source.created_at}}</p>
+                        <hr>
+                        <img ng-src={{tweet._source.profile_picture}} alt="Avatar" class="w3-left w3-circle w3-margin-right w3-margin-bottom" style="width:60px">
+                        <p>{{tweet._source.content}}</p>
+                        <br>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
