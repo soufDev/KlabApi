@@ -20,15 +20,22 @@ var mongoosastic=require("mongoosastic"),
 
 mongoose.Promise = global.Promise
 
+var params = {
+    q: '#meinunterricht',
+    count: 100
+}
 
 var twitController = require('./api/controllers/twitController')
-twitController.deletleAll().then(twitController.createData())
+twitController.deletleAll().then(twitController.createData(params))
 var twits = require('./api/models/twits')
 app.post("/api/search", function(req,res) {
     var terms=req.body.terms;
     twits.Tweet.search({ query_string: { query:terms } }, function(err,results) {
-        console.log(results)
-        res.send({ terms:terms, tweets:results.hits.hits })
+        if(results) {
+            console.log(results)
+            res.send({ terms:terms, tweets:results.hits.hits })
+        }
+        
     });
 });
 

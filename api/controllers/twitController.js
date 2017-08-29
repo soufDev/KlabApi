@@ -21,12 +21,7 @@ function searchedData(error, data, response) {
 }
 
 
-var params = {
-    q: '#meinunterricht',
-    count: 100
-}
-
-var createData = function() {
+var createData = function(params) {
   return new Twitter(config.twitter)
     .get('search/tweets', params, searchedData);
 }
@@ -39,7 +34,7 @@ var deletleAll = function() {
               element.remove(function(error){
                   if (error) throw error;
                   element.on('es-removed', function(err, res) {
-                      if (err.status == 404) console.log("no indexes to remove ");
+                      if (err) console.log("no indexes to remove");
                   });
               })
       })

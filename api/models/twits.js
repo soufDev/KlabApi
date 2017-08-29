@@ -24,7 +24,7 @@ Tweet.createMapping(function(error, mapping){
     if(error) {
         console.log('error when we create mapping')
     } else {
-        console.log('mapping created :D ')
+        console.log('mapping created :D')
     }
 })
 
