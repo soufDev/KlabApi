@@ -32,18 +32,18 @@ var createData = function() {
 }
 
 var deletleAll = function() {
-    Tweet.find({}, function(err, tweets){
-        if(err) throw err
-        else tweets.forEach(function(element){
+  return Tweet.find({}, function(err, tweets){
+      if(err) throw err
+      else tweets.forEach(function(element){
           if(element)
               element.remove(function(error){
                   if (error) throw error;
                   element.on('es-removed', function(err, res) {
-                      if (err) throw err;
+                      if (err.status == 404) console.log("no indexes to remove ");
                   });
               })
-        })
-    })
+      })
+  })
 }
 
 module.exports = {

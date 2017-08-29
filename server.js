@@ -22,8 +22,7 @@ mongoose.Promise = global.Promise
 
 
 var twitController = require('./api/controllers/twitController')
-twitController.deletleAll()
-twitController.createData()
+twitController.deletleAll().then(twitController.createData())
 var twits = require('./api/models/twits')
 app.post("/api/search", function(req,res) {
     var terms=req.body.terms;

@@ -23,10 +23,8 @@ var Tweet = mongoose.model("Tweet", tweetSchema)
 Tweet.createMapping(function(error, mapping){
     if(error) {
         console.log('error when we create mapping')
-        console.log(error)
     } else {
         console.log('mapping created :D ')
-        console.log(mapping)
     }
 })
 
